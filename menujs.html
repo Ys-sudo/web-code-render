@@ -74,17 +74,19 @@
 
         </style>
         <script>
-            function showMenu(){
-                let x = document.getElementById('menublock');
-                if (x.style.display = "none"){
-                x.style.display = "block";
-                x.classList.add("active");
 
-                }
-              }
 
         </script>
         <script>
+let i = 0;
+function showMenu(){
+    let x = document.getElementById('menublock');
+    if (x.style.display = "none"){
+    x.style.display = "block";
+    x.classList.add("active");
+    console.log(i);
+    }
+  }
 function hideMenu(){
 let x = document.getElementById('menublock');
 if (x.style.display = "block"){
@@ -92,11 +94,49 @@ if (x.style.display = "block"){
                 x.classList.remove("active");
                 }
 }
-function deco(){
-  document.getElementById("linky").innerHTML = '';
-    
-  
+
+function num0(){
+  return i = 0;
 }
+function num1(){
+  return i = 1;
+}
+function num2(){
+  return i = 2;
+}
+function num3(){
+  return i = 3;
+}
+function num4(){
+  return i = 4;
+}
+function num5(){
+  return i = 5;
+}
+function deco(){
+  let y = document.getElementsByTagName('a')[i].innerHTML;
+  let z = String(y);
+  let v = ' · ' + z + ' · ' ;
+
+  document.getElementsByTagName('a')[i].innerHTML = v;
+  console.log(y);
+
+
+}
+function hidedeco(){
+  let y = document.getElementsByTagName('a')[i].innerHTML;
+  let z = String(y);
+  let reg = new RegExp(' · ')
+  z = z.replace(reg,'')
+  z = z.replace(reg,'')
+  document.getElementsByTagName('a')[i].innerHTML = z;
+  console.log(i);
+  let p = document.getElementsByTagName('a')
+
+
+}
+
+
         </script>
         </head>
         <body>
@@ -107,12 +147,12 @@ function deco(){
            </div>
            <div align="center" id="menublock">
            <!--links section-->
-               <a id="linky" onmouseover="deco()" href="#" > link 1</a><br><br>
-               <a href="#" > My Profile </a><br><br>
-               <a href="#" > Community</a><br><br>
-               <a href="#" > Q and A</a><br><br>
-               <a href="#" > Get in Touch</a><br><br>
-               <a href="#" > Competitions</a><br><br>
+               <a onmouseover="deco(); num0()" onmouseout="hidedeco()" href="#" > link 1</a><br></br>
+               <a href="#" onmouseover="deco(); num1()" onmouseout="hidedeco()" > My Profile </a><br></br>
+               <a href="#" onmouseover="deco(); num2()" onmouseout="hidedeco()"> Community</a><br></br>
+               <a href="#" onmouseover="deco(); num3()" onmouseout="hidedeco()"> Q and A</a><br></br>
+               <a href="#" onmouseover="deco(); num4()" onmouseout="hidedeco()"> Get in Touch</a><br></br>
+               <a href="#" onmouseover="deco(); num5()" onmouseout="hidedeco()"> Competitions</a><br></br>
 
            </div>
         </body>
