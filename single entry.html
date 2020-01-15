@@ -3,17 +3,17 @@
 
 window.onload = function number() { 
 var storedValue = localStorage.getItem("server");
-if((storedValue == null)||(storedValue == 'NaN')) {
-  storedValue = 0;
+if((storedValue == null)) {
+  storedValue = 11;
 }
 document.getElementById('number').innerHTML = storedValue;
 console.log(storedValue);
 }
 function love() {
   var storedValue = localStorage.getItem("server");
-  let x = storedValue.Value;
+  let x = parseInt(storedValue);
   x=x+1;
-  return x;
+  //return x;
   console.log(x);
   console.log(storedValue);
   document.getElementById('number').innerHTML = x;
@@ -60,6 +60,6 @@ a:visited{
 <div id="rect" style=" font-family: Courier;"></div>
 <p id="descout" style="width:70%; font-family: Courier;">A little interactive poem play around with it by hovering over the text and clicking the buttons :)</p>
 <!-- <hr id="liny" ></hr> -->
-<iframe frameborder="0" src="/Users/Y-S/Desktop/Drawing_App/1576435090.html"><iframe>
+<iframe frameborder="0" src="/1576435090.html"><iframe>
 
 </body></html>
