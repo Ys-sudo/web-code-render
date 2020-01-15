@@ -1,0 +1,120 @@
+
+
+<html>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+        <style>
+          @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+          @keyframes intro {
+            0% {opacity: 0};
+            100% {opacity: 1};
+          }
+          @keyframes outro {
+            0% {opacity: 1};
+            100% {opacity: 0};
+          }
+            body{
+             background-color: black;
+            }
+            a{
+             padding-top: 30px;
+             margin-top: 20px;
+             color: white;
+             font-family: 'Bangers', cursive;
+             font-size: 30px;
+
+            }
+            a:hover{
+
+
+             color: black;
+             font-size: 45px;
+
+            }
+            #menu{
+
+                position: absolute;
+                top:5%;
+                right: 5%;
+                width: 50px;
+                height: 40px;
+                z-index: 100;
+            }
+            #bar{
+
+                width: 100%;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                height: 25%;
+                border-radius: 10px;
+                background-color: whitesmoke;
+            }
+            #bar:hover{
+                background-color: cyan;
+            }
+            #menublock{
+                position: absolute;
+                top: 0%;
+                padding-top: 100px;
+                width: 100%;
+                height: 100%;
+                background-color: cyan;
+                display: none;
+
+
+            }
+            .active{
+
+              -webkit-animation: intro 1.5s 1; /* Safari 4+ */
+              -moz-animation:    intro 1.5s 1; /* Fx 5+ */
+              -o-animation:      intro 1.5s 1; /* Opera 12+ */
+              animation:         intro 1.5s 1; /* IE 10+, Fx 29+ */
+
+            }
+
+        </style>
+        <script>
+            function showMenu(){
+                let x = document.getElementById('menublock');
+                if (x.style.display = "none"){
+                x.style.display = "block";
+                x.classList.add("active");
+
+                }
+              }
+
+        </script>
+        <script>
+function hideMenu(){
+let x = document.getElementById('menublock');
+if (x.style.display = "block"){
+                x.style.display = "none";
+                x.classList.remove("active");
+                }
+}
+function deco(){
+  let x = document.getElementByTagName('a');
+  x.innerHTML = "&#183; " + x.value + "&#183;";
+  
+}
+        </script>
+        </head>
+        <body>
+           <div id="menu" onclick="showMenu()" onmouseover="hideMenu()">
+           <div id="bar"> </div>
+           <div id="bar"> </div>
+           <div id="bar"> </div>
+           </div>
+           <div align="center" id="menublock">
+           <!--links section-->
+               <a onmouseover="deco()" href="#" > link 1</a><br><br>
+               <a href="#" > My Profile </a><br><br>
+               <a href="#" > Community</a><br><br>
+               <a href="#" > Q and A</a><br><br>
+               <a href="#" > Get in Touch</a><br><br>
+               <a href="#" > Competitions</a><br><br>
+
+           </div>
+        </body>
+
+</html>
