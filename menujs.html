@@ -93,8 +93,8 @@ if (x.style.display = "block"){
                 }
 }
 function deco(){
-  let x = document.getElementByTagName('a');
-  x.innerHTML = "&#183; " + x.value + "&#183;";
+  document.getElementById("linky").innerHTML = '';
+    
   
 }
         </script>
@@ -107,7 +107,7 @@ function deco(){
            </div>
            <div align="center" id="menublock">
            <!--links section-->
-               <a onmouseover="deco()" href="#" > link 1</a><br><br>
+               <a id="linky" onmouseover="deco()" href="#" > link 1</a><br><br>
                <a href="#" > My Profile </a><br><br>
                <a href="#" > Community</a><br><br>
                <a href="#" > Q and A</a><br><br>
