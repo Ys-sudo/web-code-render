@@ -1,143 +1,105 @@
 <!--by typewriterXXX submited at: 20:38:08 on: Sun Dec 15 2019 A little interactive poem play around with it by hovering over the text and clicking the buttons :)--><!--example-->
 <html>
-<head>
+  <head>
+    <style>
+      body {
+        background-color: black;
+        overflow: scroll;
+      }
+      h1 {
+        color: white;
+        font-size: 15px;
+        font-family: courier;
+        position: relative;
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+      p {
+        color: white;
+        font-size: 20px;
+        font-family: courier;
+      }
+      p:hover {
+        color: green;
+      }
 
-<style>
-body{
-  background-color: black;
-  overflow: scroll;
+      div {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
 
-}
-h1{
-  color: white;
-  font-size: 15px;
-  font-family: courier;
-  position: relative;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-p{
-  color: white;
-  font-size: 20px;
-  font-family: courier;
-}
-p:hover{
-  color: green;
-}
+      button {
+        margin-top: 10px;
+        font-size: 15px;
+        padding: 13px;
+        position: absolute;
+        right: 1%;
+        top: 50%;
+        border: 5px solid white;
+        background-color: black;
+        color: whitesmoke;
+        font-family: courier;
+      }
+      button:hover {
+        border: 5px dashed green;
 
-div{
-  height: 100%;
-  width:100%;
-  position:absolute;
-}
+        color: green;
+        font-family: courier;
+      }
 
+      #b2 {
+        margin-top: 10px;
+        font-size: 15px;
+        padding: 13px;
+        position: absolute;
+        left: 1%;
+        border: 5px solid white;
+        background-color: black;
+        color: whitesmoke;
+        font-family: courier;
+        z-index: 100;
+        top: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div onmouseover="plusToo()">
+      <h1 id="title" align="center">
+        A people’s first language is the motion of their basketweave. Yes,
+        death, our motion: yours. But, for making me forget where around my
+        husband’s bend a cobra lurked, your repentance: not enough. He and I we
+        remain close as severed roots of banyan tree. Yes, your melody taught me
+        to lace the rhythm of my work, a melody that fits through a basket’s
+        thousand eyes—a rattle without a chant until I heard my husband’s
+        killing song. I was a child no one believed, beaten as an aging weaver’s
+        hand. Vision, too, is never enough like baskets never empty: my son will
+        live inside the pause between two whispers. He will embrace that pause
+        like a man fucking, pull himself from it just as quick. I draw him away
+        from your path by my own strand inside the bark. I am no longer the
+        child you taught, nameless inside the junctions, bound to the weaving.
+      </h1>
+    </div>
 
-
-button{
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 13px;
-  position: absolute;
-  right: 1%;
-  top: 50%;
-  border: 5px solid white;
-  background-color: black;
-  color: whitesmoke;
-  font-family: courier;
-}
-button:hover{
-
-  border: 5px dashed green;
-
-  color: green;
-  font-family: courier;
-}
-
-#b2{
- margin-top: 10px;
-  font-size: 15px;
-  padding: 13px;
-  position: absolute;
-  left: 1%;
-  border: 5px solid white;
-  background-color: black;
-  color: whitesmoke;
-  font-family: courier;
-  z-index: 100;
-  top: 50%;
-}
-</style>
-
-
-</head>
-<body>
-<div onmouseover="plusToo()">
-<h1 id="title" align="center" >
- A people’s first language is the motion of their basketweave.
-
-Yes, death, our motion: yours. But, for making me forget
-
-where around my husband’s bend a cobra lurked,
-
-your repentance: not enough.
-
-
-He and I we remain close as severed roots of banyan tree.
-
-Yes, your melody taught me to lace
-
-the rhythm of my work, a melody that fits through a basket’s
-
-thousand eyes—a rattle without a chant
-
-
-until I heard my husband’s
-
-killing song. I was a child no one believed, beaten
-
-as an aging weaver’s hand. Vision, too, is never enough
-
-like baskets never empty: my son will live
-
-
-inside the pause between two whispers. He will embrace that pause like a man
-
-fucking, pull himself from it just as quick. I draw him away from your path
-
-by my own strand inside the bark. I am no longer the child
-
-you taught, nameless
-
-
-inside the junctions, bound to the weaving.
-</h1>
-
-</div>
-
-<button type="submit" onclick="otoPlus()" >
-click me too!
-</button>
-<button id="b2" type="submit" onclick="otoPlus()" >
-click me please!
-</button>
-<script>
-
-function otoPlus() {
-    var str = document.getElementById("title").innerHTML;
-    var res = str.replace(/o/g, "10");
-    document.getElementById("title").innerHTML = res;
-
-    }
-function plusToo(){
-		var str = document.getElementById("title").innerHTML;
-    var res = str.replace(/1/g, "a");
-    document.getElementById("title").innerHTML = res;
-    var re = str.replace(/0/g, "ooo");
-    document.getElementById("title").innerHTML = re;
-}
-
-
-</script>
-
-</body>
+    <button type="submit" onclick="otoPlus()">
+      click me too!
+    </button>
+    <button id="b2" type="submit" onclick="otoPlus()">
+      click me please!
+    </button>
+    <script>
+      function otoPlus() {
+        var str = document.getElementById("title").innerHTML;
+        var res = str.replace(/o/g, "10");
+        document.getElementById("title").innerHTML = res;
+      }
+      function plusToo() {
+        var str = document.getElementById("title").innerHTML;
+        var res = str.replace(/1/g, "a");
+        document.getElementById("title").innerHTML = res;
+        var re = str.replace(/0/g, "ooo");
+        document.getElementById("title").innerHTML = re;
+      }
+    </script>
+  </body>
 </html>
