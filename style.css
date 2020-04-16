@@ -3,7 +3,7 @@
 
     body {
         background-color: black;
-
+        overflow-x:hidden;
     }
     a {
       color: whitesmoke;
@@ -17,7 +17,7 @@
     #date{
       color: whitesmoke;
       position: absolute;
-      right:4%;
+      left:4%;
       font-family: 'Bangers', cursive;
       font-size: 20px;
       z-index: 200;
@@ -26,30 +26,13 @@
     #time{
       color: whitesmoke;
       position: absolute;
-      right:15%;
+      right:4%;
       font-family: 'Bangers', cursive;
       font-size: 20px;
       z-index: 200;
 
     }
-    #archives{
-      position: absolute;
-      right:22%;
-      font-family: 'Bangers', cursive;
-      font-size: 20px;
-      z-index: 200;
-
-    }
-    #about1{
-      color: whitesmoke;
-      position: absolute;
-      right:29%;
-      font-family: 'Bangers', cursive;
-      font-size: 20px;
-      z-index: 200;
-      text-decoration: underline;
-
-    }
+    
 
 
     #title{
@@ -61,31 +44,14 @@
       font-size: 50px;
 
     }
-    #rect0{
-     background-color: white;
-     width: 2%;
-     height: 17.7%;
-     position: absolute;
-     top: 3.5%;
-     left: 2%;
-    }
-    #about{
-      width: 40%;
-      height: 21%;
-      position: absolute;
-      top: 9%;
-      left: 5%;
-      color: white;
-      font-size: 15px;
-      font-family: 'Courier';
-    }
+    
     #editor {
         padding-top: 10;
         position: absolute;
-        top: 89.5%;
+        top: 59.5%;
         bottom: 0;
-        left: 0;
-        right: 0;
+        left: 0px;
+        right: 0px;
         width: 100%;
         height: 40%;
 
@@ -95,7 +61,7 @@
       position: absolute;
       background-color: black;
       color: white;
-      top:30%;
+      top:10%;
       height: 10%;
       z-index: 221;
       width:40.5%;
@@ -107,11 +73,11 @@
     }
     #box{
       margin: 0;
-      top:30%;
+      top:10%;
       position: absolute;
       z-index: 11;
-      left:40%;
-      width: 59.9%;
+      left:0%;
+      width: 100%;
       height: 59%;
       background-color: black;
       right: 23%;
@@ -128,11 +94,11 @@
       position: absolute;
       z-index: 11;
       left:0%;
-      width: 40%;
-      height: 48.5%;
+      width: 100%;
+      height: 20%;
       background-color: black;
       right: 23%;
-      top: 40%;
+      top: 50%;
       font-family: courier;
       font-size: 12px;
       overflow: scroll;
@@ -252,12 +218,4 @@
      font-family: 'Courier';
      z-index: 110;
    }
-   #post{
-     height: 65%;
-     width:30%;
-     margin-left:1%;
-     margin-right:1%;
-     overflow: hidden;
-     border-top: 1px solid white;
-     margin-bottom:50px;
-   }
+   
