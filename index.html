@@ -16,6 +16,18 @@
         background-color: white;
         overflow-x:hidden;
     }
+    
+    ::-webkit-scrollbar{
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #f06292;
+  border-radius: 6px;
+}
+    
+    
     a {
       color: whitesmoke;
     }
@@ -414,7 +426,7 @@ startTime();
     y = document.getElementById("time").innerHTML;
     z = document.getElementById("date").innerHTML;
     document.getElementById("out").innerHTML = 'by ' + x + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + 'submited at: ' + y + ' ' + 'on: ' + z;
-    q = document.getElementById("desc").value;
+    q = document.getElementByClassName("ace_active-line").value;
     document.getElementById("descout").innerHTML = q;
     let rect = document.getElementById('rect');
     rect.setAttribute("style", "background-color: white; width: 2%; height: 10.1%; position: absolute; top: 152%; left: 2%;");
