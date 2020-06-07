@@ -287,7 +287,7 @@ scrollbar {
   </div>
   </foreignObject>
   </svg>`;
-  	var blob = new Blob( [data], {type:'image/svg+xml'} );
+    var blob = new Blob( [data], {type:'image/svg+xml'} );
   	var url=URL.createObjectURL(blob);
   	output.src= url;
     console.log(url);
@@ -505,77 +505,7 @@ startTime();
 <!-- USER INPUT - USER CODE -->
 <textarea id="box1" style="visibility:hidden" draggable="true">
 
-<!--example-->
-<html>
-<head>
-  <script>
-  function play(){
-          var audio = new Audio('https://freesound.org/data/previews/338/338986_5106192-lq.mp3');
-          audio.play();
-        }
 
-  </script>
-  <style>
-  body {
-    font-family:monospace;
-    font-style: normal;
-    font-variant: normal;
-    font-size:13.3px;
-  }
-  @-webkit-keyframes change {
-    0% { transform: scale(1); }
-    50% { transform: scale(2); }
-    100% { transform: scale(1); }
-
-  }
-  @-webkit-keyframes change1 {
-    0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
-    16.66%, 29.32% { transform: translate3d(0, 155%, 0); }
-    33.32%,45.98% { transform: translate3d(0, 550%, 0); }
-    49.98%,62.64% { transform: translate3d(0, 1500%, 0); }
-    66.64%,79.3% { transform: translate3d(0, 550%, 0); }
-    83.3%,95.96% { transform: translate3d(0, 155%, 0); }
-  }
-  h1{
-    font-size: 35px;
-    animation: change 60s infinite;
-    margin-top: 50px;
-    color: white;
-  }
-  h1:hover {
-    font-size: 35px;
-    color: black;
-    animation: change 60s infinite;
-    margin-top: 50px;
-  }
-  p{
-    animation: change1 10s infinite;
-    position: relative;
-
-  }
-
-
-  #bg {
-    position: absolute;
-    top: 0%;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-</head>
-<div style="width:100%;height:100%;">
-<h1 id="heading" onmouseenter="play()" align="center" >How are you <a style="color:cyan"> today?</a> </h1>
-
-  <p align="center" style="color:white" > HTML IDE-v2.1 </p>
-  <p align="center" style="color:white" >Welcome to our little HTML editor</p>
-  <p align="center" style="color:white" >Feel free to play around with the code :) </p>
-  <p align="center" style="color:white" >Don't forget to publish your code! </p>
-  <img id="bg" src="https://4.bp.blogspot.com/-qoEahTAjQEg/Ud6FKsRRRnI/AAAAAAAABPU/X71q5Kig3Vk/s1600/Sky+Anime+Landscape+36.png"/>
-
-</div>
-
-</html>
 
 </textarea>
 
