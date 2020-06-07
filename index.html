@@ -260,13 +260,15 @@ scrollbar {
  // RENDER FUNCTION - upper right window
   function render(){
   	//var inp     = document.getElementById("box1");
-    var editor = ace.edit("aceEditor");
-  var code = editor.getValue();
-   var inp = code;
+  var editor = ace.edit("aceEditor");
+  var code =editor.getValue();
+   let inp;
+    console.log(code);
+    //inp = code;
     var output     = document.getElementById("box");
   	var data = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth*1.5}" height="${inp.offsetHeight*1.5}">
-  <foreignObject width="100%" height="100%">
+  <foreignObject width="90%" height="90%">
   <div xmlns="http://www.w3.org/1999/xhtml">
   ${inp.value}
   </div>
@@ -328,7 +330,7 @@ startTime();
 
 
 
-<div id="aceeditor" style="background-color: rgb(19, 19, 19);">
+<div id="aceEditor" style="background-color: rgb(19, 19, 19);">
 <pre id="editor" style="color:white">
   The web app is made for creating HTML 
   elements and CSS animations, 
@@ -552,7 +554,7 @@ startTime();
   }
   </style>
 </head>
-<body style="width:100%;height:100%;">
+<div style="width:100%;height:100%;">
 <h1 id="heading" onmouseenter="play()" align="center" >How are you <a style="color:cyan"> today?</a> </h1>
 
   <p align="center" style="color:white" > HTML IDE-v2.1 </p>
@@ -561,7 +563,7 @@ startTime();
   <p align="center" style="color:white" >Don't forget to publish your code! </p>
   <img id="bg" src="https://4.bp.blogspot.com/-qoEahTAjQEg/Ud6FKsRRRnI/AAAAAAAABPU/X71q5Kig3Vk/s1600/Sky+Anime+Landscape+36.png"/>
 
-</body>
+</div>
 
 </html>
 
