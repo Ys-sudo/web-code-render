@@ -259,10 +259,14 @@ scrollbar {
 
  // RENDER FUNCTION - upper right window
   function render(){
-  var inp     = document.getElementById("box1");
+  
+  
   var editor = ace.edit("aceEditor");
   var code =editor.getValue();
-   
+    
+   var inp = document.getElementById("box1");
+    
+    box1.innerHTML = code;
     console.log(code);
     console.log(inp);
 
@@ -270,7 +274,7 @@ scrollbar {
     var output     = document.getElementById("box");
   	var data = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth*1.5}" height="${inp.offsetHeight*1.5}">
-  <foreignObject width="90%" height="90%">
+  <foreignObject width="99%" height="99%">
   <div xmlns="http://www.w3.org/1999/xhtml">
   ${inp.value}
   </div>
