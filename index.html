@@ -259,7 +259,10 @@ scrollbar {
 
  // RENDER FUNCTION - upper right window
   function render(){
-  	var inp     = document.getElementById("box1");
+  	//var inp     = document.getElementById("box1");
+    var editor = ace.edit("aceEditor");
+  var code = editor.getValue();
+   var inp = code;
     var output     = document.getElementById("box");
   	var data = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth*1.5}" height="${inp.offsetHeight*1.5}">
@@ -431,7 +434,7 @@ startTime();
     let rect = document.getElementById('rect');
     rect.setAttribute("style", "background-color: white; width: 2%; height: 10.1%; position: absolute; top: 152%; left: 2%;");
     
-   
+    
    
     if (appended == false) {
     let addFrame = document.createElement('iframe');
