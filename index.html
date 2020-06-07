@@ -426,11 +426,13 @@ startTime();
     y = document.getElementById("time").innerHTML;
     z = document.getElementById("date").innerHTML;
     document.getElementById("out").innerHTML = 'by ' + x + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + 'submited at: ' + y + ' ' + 'on: ' + z;
-    q = document.getElementByClassName("ace_active-line").value;
+    q = document.getElementById("desc").value;
     document.getElementById("descout").innerHTML = q;
     let rect = document.getElementById('rect');
     rect.setAttribute("style", "background-color: white; width: 2%; height: 10.1%; position: absolute; top: 152%; left: 2%;");
-
+    
+   
+   
     if (appended == false) {
     let addFrame = document.createElement('iframe');
 
