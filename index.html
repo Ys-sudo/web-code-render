@@ -259,12 +259,14 @@ scrollbar {
 
  // RENDER FUNCTION - upper right window
   function render(){
-  	//var inp     = document.getElementById("box1");
+  var inp     = document.getElementById("box1");
   var editor = ace.edit("aceEditor");
   var code =editor.getValue();
-   let inp;
+   
     console.log(code);
-    //inp = code;
+    console.log(inp);
+
+    
     var output     = document.getElementById("box");
   	var data = `
   <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth*1.5}" height="${inp.offsetHeight*1.5}">
