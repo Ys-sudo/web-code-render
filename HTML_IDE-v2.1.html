@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Welcome to our HTML IDE</title>
+  <link rel="shortcut icon" type="image/png" href="https://theturtle.gr/wp-content/uploads/2019/11/htmllogo.png"/>
+  <style type="text/css" media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Monofett&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+
+    body {
+        background-color: black;
+
+    }
+    a {
+      color: whitesmoke;
+    }
+    a:hover {
+      color: cyan;
+    }
+    a:visited {
+      color: cyan;
+    }
+    #date{
+      color: whitesmoke;
+      position: absolute;
+      right:4%;
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      z-index: 200;
+
+    }
+    #time{
+      color: whitesmoke;
+      position: absolute;
+      right:15%;
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      z-index: 200;
+
+    }
+    #archives{
+      position: absolute;
+      right:22%;
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      z-index: 200;
+
+    }
+    #about1{
+      color: whitesmoke;
+      position: absolute;
+      right:29%;
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      z-index: 200;
+      text-decoration: underline;
+
+    }
+
+
+    #title{
+      font-family: 'Monofett';
+      top: -3%;
+      position: absolute;
+      left: 5%;
+      color: white;
+      font-size: 50px;
+
+    }
+    #rect0{
+     background-color: white;
+     width: 2%;
+     height: 20.1%;
+     position: absolute;
+     top: 3.5%;
+     left: 2%;
+    }
+    #about{
+      width: 40%;
+      height: 21%;
+      position: absolute;
+      top: 9%;
+      left: 5%;
+      color: white;
+      font-size: 15px;
+      font-family: 'Courier';
+    }
+    #editor {
+        padding-top: 10;
+        position: absolute;
+        top: 89.5%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 40%;
+
+    }
+
+    #b2{
+      position: absolute;
+      background-color: black;
+      color: white;
+      top:30%;
+      height: 10%;
+      z-index: 221;
+      width:40.5%;
+      left:0%;
+      font-family: courier;
+    }
+    textarea{
+      border-width: 0px;
+    }
+    #box{
+      margin: 0;
+      top:30%;
+      position: absolute;
+      z-index: 11;
+      left:40%;
+      width: 59.9%;
+      height: 59%;
+      background-color: black;
+      right: 23%;
+      overflow: scroll;
+      border: 1px solid white;
+
+
+    }
+
+
+    #box1{
+      margin: 0;
+      color: cyan;
+      position: absolute;
+      z-index: 11;
+      left:0%;
+      width: 40%;
+      height: 48.5%;
+      background-color: black;
+      right: 23%;
+      top: 40%;
+      font-family: courier;
+      font-size: 12px;
+      overflow: scroll;
+      border: 1px solid white;
+
+    }
+
+
+
+
+   iframe{
+     resize: both;
+   }
+   #desc{
+       position: absolute;
+       background-color: black;
+       color: white;
+       border: 1px solid white;
+       width: 50%;
+       height: 10.3%;
+       left: 0%;
+       top: 130%;
+
+
+   }
+   #name{
+       position: absolute;
+       background-color: black;
+       color: white;
+       top: 130%;
+       border: 1px solid white;
+       height: 10.3%;
+       left: 50%;
+       width: 20%;
+
+   }
+
+   #publish{
+       position: absolute;
+       background-color: black;
+       color: white;
+       border: 1px solid white;
+       height: 11.2%;
+       top: 130%;
+       left: 85%;
+       width: 15%;
+   }
+   #preview{
+       position: absolute;
+       background-color: black;
+       color: white;
+       border: 1px solid white;
+       height: 11.2%;
+       top: 130%;
+       left: 70%;
+       width: 15%;
+   }
+   #lina{
+       position: absolute;
+       top:145%;
+       width: 100%;
+
+
+   }
+   #out{
+       position: absolute;
+       top: 150%;
+       left: 5%;
+       z-index: 111;
+       color: white;
+   }
+   #descout{
+       position: absolute;
+       top: 155%;
+       left: 5%;
+       color: white;
+       font-size: 10px;
+       margin-top: 10px;
+   }
+   #entries{
+     font-family: 'Monofett';
+     position: absolute;
+     top: 145%;
+     color: white;
+     font-size: 50px;
+     left: 37%;
+
+   }
+   #archive{
+     position: absolute;
+     top: 150%;
+     position:absolute;
+     width:100%;
+     height:100%;
+     left:0px;
+     top:160%;
+     z-index:110;
+     overflow: scroll;
+     border: 1px solid white;
+   }
+
+  </style>
+  <script>
+
+
+
+  function render(){
+  	var inp     = document.getElementById("box1");
+    var output     = document.getElementById("box");
+  	var data = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth*1.5}" height="${inp.offsetHeight*1.5}">
+  <foreignObject width="100%" height="100%">
+  <div xmlns="http://www.w3.org/1999/xhtml">
+  ${inp.value}
+  </div>
+  </foreignObject>
+  </svg>`;
+  	var blob = new Blob( [data], {type:'image/svg+xml'} );
+  	var url=URL.createObjectURL(blob);
+  	output.src= url;
+    console.log(url);
+
+
+
+
+   }
+   onload=function(){
+    render();
+    ro = new ResizeObserver(render);
+  	ro.observe(document.getElementById("box1"));
+
+   }
+
+
+  </script>
+</head>
+<body>
+<p  id="archives"><a href="#entries">archives</a></p>
+<p  id="about1">about</p>
+<p  id="date"></p>
+<!--DATE-->
+<script>
+var d = new Date();
+document.getElementById("date").innerHTML = d.toDateString();
+</script>
+
+<p  id="time"></p>
+<script>
+  function checkTime(i) {
+if (i < 10) {
+  i = "0" + i;
+}
+return i;
+}
+
+function startTime() {
+var today = new Date();
+var h = today.getHours();
+var m = today.getMinutes();
+var s = today.getSeconds();
+// add a zero in front of numbers<10
+m = checkTime(m);
+s = checkTime(s);
+document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+t = setTimeout(function() {
+  startTime()
+}, 500);
+}
+startTime();
+</script>
+
+<h1 id="title"> Code publishing platform </h1>
+<div id="rect0"></div>
+<p id="about"> An open source experimental web project,
+below you will find our editor for creating content.
+you can easily preview and test it in the editor, anyone is welcome to use it.
+When you finish just click the publish button to send it for revision and publication on the page.
+Have fun participating in the project!
+ </p>
+
+
+
+<div id="editor" style="background-color: rgb(19, 19, 19);">
+<pre id="editor" style="color:white">
+  The program is made for creating pure HTML elements and CSS animations, it does also support JS.
+
+  Delete this text and write your html here for syntax highlighting and correction or in the left-top section for execution,
+  you can also drag and drop the selected code between windows. To refresh the render press the only button at top-left.
+  Try to resize the top windows to scale the content by grabbing them by their right-bottom corner.
+
+</pre>
+</div>
+<p id="date"></p>
+<script>
+let d1 = new Date();
+document.getElementById("date").innerHTML = d1.toDateString();
+</script>
+
+<p id="time"></p>
+<script>
+let m = new Date();
+let dateString =
+    ("0" + m.getHours()).slice(-2) + ":" +
+    ("0" + m.getMinutes()).slice(-2) + ":" +
+    ("0" + m.getSeconds()).slice(-2);
+document.getElementById("time").innerHTML = dateString;
+</script>
+
+<textarea id="desc" style=" font-family: Courier;" maxlength="300">Nisi aut architecto voluptas est enim. Quia aut sit quod praesentium possimus molestiae. Magni amet praesentium aut nemo est corrupti omnis. Doloribus sunt molestiae explicabo voluptates aut possimus nostrum odit. Molestiae omnis et ut necessitatibus quaerat eum in animi.</textarea>
+
+<textarea id="name" style=" font-family: Courier;" maxlength="300">anonymous</textarea>
+
+<button id="preview" style=" font-family: Courier;" onclick="preview()">
+    Preview the code!
+</button>
+
+<button id="publish" style=" font-family: Courier;" onclick="publish()">
+    Publish your code!
+</button>
+
+<hr id="lina" style="color: white"/>
+<p id="out" style=" font-family: Courier;"></p>
+<div id="rect" style=" font-family: Courier;"></div>
+<p id="descout" style="width:50%; font-family: Courier;"></p>
+<script>
+ let appended = false;
+ function publish(){
+    x = document.getElementById("name").value;
+    y = document.getElementById("time").innerHTML;
+    z = document.getElementById("date").innerHTML;
+    document.getElementById("out").innerHTML = 'by ' + x + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + 'submited at: ' + y + ' ' + 'on: ' + z;
+    q = document.getElementById("desc").value;
+    document.getElementById("descout").innerHTML = q;
+    let rect = document.getElementById('rect');
+    rect.setAttribute("style", "background-color: white; width: 2%; height: 10.1%; position: absolute; top: 152%; left: 2%;");
+
+    if (appended == false) {
+    let addFrame = document.createElement('iframe');
+
+    addFrame.style.cssText = 'position:absolute;width:100%;height:100%;left:0px; top:167%; z-index:110; overflow: scroll; border: 1px solid white';
+    addFrame.id = "boxr";
+    let moveOne = document.getElementById('entries');
+    let moveTwo = document.getElementById('archive');
+    moveOne.style.cssText = "top:265%;"
+    moveTwo.style.cssText = "top:280%;"
+    document.body.appendChild(addFrame);
+    };
+
+    let inp     = document.getElementById("box1");
+    let publication     = document.getElementById("boxr");
+  	let data = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+  <div xmlns="http://www.w3.org/1999/xhtml"
+  style="font-family:monospace;font-style: normal; font-variant: normal; font-size:13.3px;padding:2px;">
+  ${inp.value}
+  </div>
+  </foreignObject>
+  </svg>`;
+  	var blob = new Blob( [data], {type:'image/svg+xml'} );
+  	var url=URL.createObjectURL(blob);
+    publication.src= url;
+    appended = true;
+    console.log(url);
+    console.log(appended);
+    alert('Your code have been submited, it will be checked by the admin and uploaded shortly, thank you! below is the full screen preview of what you prepared!');
+
+    var datax = new FormData();
+    datax.append("datax" , '<!--' + 'by ' + x + ' ' + 'submited at: ' + y + ' ' + 'on: ' + z + ' ' + q +'-->' + inp.value  );
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'post', 'path/to/post.php', true );
+    xhr.send(datax);
+    console.log(datax);
+
+
+  }
+
+
+
+
+</script>
+
+<script>
+
+ function preview(){
+
+    x = document.getElementById("name").value;
+    y = document.getElementById("time").innerHTML;
+    z = document.getElementById("date").innerHTML;
+    document.getElementById("out").innerHTML = 'by ' + x + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + 'submited at: ' + y + ' ' + 'on: ' + z;
+    q = document.getElementById("desc").value;
+    document.getElementById("descout").innerHTML = q;
+    let rect = document.getElementById('rect');
+    rect.setAttribute("style", "background-color: white; width: 2%; height: 10.1%; position: absolute; top: 152%; left: 2%;");
+
+    if (appended == false) {
+    let addFrame = document.createElement('iframe');
+
+    addFrame.style.cssText = 'position:absolute;width:100%;height:100%;left:0px; top:167%; z-index:110; overflow: scroll; border: 1px solid white';
+    addFrame.id = "boxr";
+    let moveOne = document.getElementById('entries');
+    let moveTwo = document.getElementById('archive');
+    moveOne.style.cssText = "top:265%;"
+    moveTwo.style.cssText = "top:280%;"
+    document.body.appendChild(addFrame);
+    };
+
+    let inp     = document.getElementById("box1");
+    let publication = document.getElementById("boxr");
+  	let data = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+  <div xmlns="http://www.w3.org/1999/xhtml"
+  style="font-family:monospace;font-style: normal; font-variant: normal; font-size:13.3px;padding:2px;">
+  ${inp.value}
+  </div>
+  </foreignObject>
+  </svg>`;
+  	var blob = new Blob( [data], {type:'image/svg+xml'} );
+  	var url=URL.createObjectURL(blob);
+    publication.src= url;
+    appended = true;
+    console.log(url);
+    //console.log(appended);
+  };
+
+
+
+
+
+</script>
+
+<script src="https://ajaxorg.github.io/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/html");
+</script>
+
+<button id="b2" onclick="render()"  >paste below & click to run!
+You can prepare your code in the bottom section.</button>
+<div id="output"> </div>
+
+
+<iframe frameborder="0" id="box" draggable="true">
+</iframe>
+
+<textarea id="box1" draggable="true">
+<!--example-->
+<html>
+<head>
+  <script>
+  function play(){
+          var audio = new Audio('https://freesound.org/data/previews/338/338986_5106192-lq.mp3');
+          audio.play();
+        }
+
+  </script>
+  <style>
+  body {
+    font-family:monospace;
+    font-style: normal;
+    font-variant: normal;
+    font-size:13.3px;
+  }
+  @-webkit-keyframes change {
+    0% { transform: scale(1); }
+    50% { transform: scale(2); }
+    100% { transform: scale(1); }
+
+  }
+  @-webkit-keyframes change1 {
+    0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
+    16.66%, 29.32% { transform: translate3d(0, 155%, 0); }
+    33.32%,45.98% { transform: translate3d(0, 550%, 0); }
+    49.98%,62.64% { transform: translate3d(0, 1500%, 0); }
+    66.64%,79.3% { transform: translate3d(0, 550%, 0); }
+    83.3%,95.96% { transform: translate3d(0, 155%, 0); }
+  }
+  h1{
+    font-size: 35px;
+    animation: change 60s infinite;
+    margin-top: 50px;
+    color: white;
+  }
+  h1:hover {
+    font-size: 35px;
+    color: black;
+    animation: change 60s infinite;
+    margin-top: 50px;
+  }
+  p{
+    animation: change1 10s infinite;
+    position: relative;
+
+  }
+
+
+  #bg {
+    position: absolute;
+    top: 0%;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+<body style="width:100%;height:100%;">
+<h1 id="heading" onmouseenter="play()" align="center" >How are you <a style="color:cyan"> today?</a> </h1>
+
+  <p align="center" style="color:white" > HTML IDE-v2.1 </p>
+  <p align="center" style="color:white" >Welcome to our little HTML editor</p>
+  <p align="center" style="color:white" >Feel free to play around with the code :) </p>
+  <p align="center" style="color:white" >Don't forget to publish your code! </p>
+  <img id="bg" src="https://4.bp.blogspot.com/-qoEahTAjQEg/Ud6FKsRRRnI/AAAAAAAABPU/X71q5Kig3Vk/s1600/Sky+Anime+Landscape+36.png"/>
+
+</body>
+
+</html>
+
+</textarea>
+<h1 align="center" id="entries"> code archives </h1>
+<div id="archive">
+<iframe style="height: 100%; width:100%" id="" src=""></iframe>
+<iframe style="height: 100%; width:100%" src=""></iframe>
+</div>
+
+</body>
+</html>

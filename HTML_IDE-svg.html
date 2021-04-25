@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Welcome to our HTML IDE</title>
+  <link rel="shortcut icon" type="image/png" href="https://theturtle.gr/wp-content/uploads/2019/11/htmllogo.png"/>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    #editor {
+        padding-top: 10;
+        position: absolute;
+        top: 59.5%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+    }
+
+    #b2{
+      position: absolute;
+      background-color: black;
+      color: white;
+      top:59.8%;
+      height: 10%;
+      z-index: 221;
+      width:40.5%;
+      top:0%;
+      left:0%;
+      font-family: courier;
+    }
+    textarea{
+      border-width: 0px;
+    }
+    #box{
+      margin: 0;
+      top:0%;
+      position: absolute;
+      z-index: 11;
+      left:40%;
+      width: 59.8%;
+      height: 59%;
+      background-color: black;
+      right: 23%;
+      overflow: scroll;
+      border: 1px solid white;
+
+
+    }
+
+    #box1{
+      margin: 0;
+      color: cyan;
+      position: absolute;
+      z-index: 11;
+      left:0%;
+      width: 40%;
+      height: 49%;
+      background-color: black;
+      right: 23%;
+      top: 10%;
+      font-family: courier;
+      font-size: 12px;
+      overflow: scroll;
+      border: 1px solid white;
+
+    }
+    #h{
+      position: absolute;
+      bottom: 5px;
+      right:0%;
+      width:5%;
+    }
+
+
+
+  </style>
+  <script>
+
+
+
+  function render(){
+  	var inp     = document.getElementById("box1");
+    var output     = document.getElementById("box");
+  	var data = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="${inp.offsetWidth}" height="${inp.offsetHeight}">
+  <foreignObject width="100%" height="100%">
+  <div xmlns="http://www.w3.org/1999/xhtml"
+  style="font-family:monospace;font-style: normal; font-variant: normal; font-size:13.3px;padding:2px;;">
+  ${inp.value}
+  </div>
+  </foreignObject>
+  </svg>`;
+  	var blob = new Blob( [data], {type:'image/svg+xml'} );
+  	var url=URL.createObjectURL(blob);
+  	output.style.backgroundImage="url("+URL.createObjectURL(blob)+")";
+    output.style.backgroundRepeat="no-repeat";
+    output.style.backgroundSize="contain";
+    output.style.backgroundPosition="center";
+    output.style.backgroundOrgin="content-box"
+    output.style.position="absolute"
+    console.log(url);
+
+
+
+
+   }
+   onload=function(){
+    render();
+    ro = new ResizeObserver(render);
+  	ro.observe(document.getElementById("box1"));
+
+   }
+  </script>
+</head>
+<body>
+<div id="editor" style="background-color: rgb(19, 19, 19);">
+<pre id="editor" style="color:white">
+  The program is made for creating pure HTML elements and CSS animations, it does not support js, and css pseudo-classes such as hover.
+
+  Delete this text and write your html here for syntax highlighting and correction or in the left-top section for execution,
+  you can also drag and drop the selected code between windows. To refresh the render press the only button at top-left.
+  Try to resize the top windows to scale the content by grabbing them by their right-bottom corner.
+
+
+
+
+</pre>
+</div>
+<script src="https://ajaxorg.github.io/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/html");
+</script>
+
+<button id="b2" onclick="render()"  >paste below & click to run!
+You can prepare your code in the bottom section.</button>
+<div id="output"> </div>
+
+
+<textarea id="box" draggable="true">
+</textarea>
+<textarea id="box1" draggable="true">
+  <!--example-->
+  <html>
+    <head>
+      <style>
+      @-webkit-keyframes change {
+        0% { transform: scale(1); }
+        50% { transform: scale(100); }
+        100% { transform: scale(1); }
+
+      }
+      @-webkit-keyframes change1 {
+        0%, 12.66%, 100% { transform: translate3d(0, 0, 0); }
+        16.66%, 29.32% { transform: translate3d(0, 155%, 0); }
+        33.32%,45.98% { transform: translate3d(0, 550%, 0); }
+        49.98%,62.64% { transform: translate3d(0, 1500%, 0); }
+        66.64%,79.3% { transform: translate3d(0, 550%, 0); }
+        83.3%,95.96% { transform: translate3d(0, 155%, 0); }
+      }
+      h1{
+        font-size: 35px;
+        animation: change 60s infinite;
+        margin-top: 50px;
+      }
+      p{
+        animation: change1 10s infinite;
+        position: relative;
+
+      }
+      </style>
+    </head>
+    <body style="background-color:black; width:100%;height:100%;">
+    <h1 align="center" style="background-color:black; color:white">How are you<a style="color:cyan"> today?</a></h1>
+
+      <p align="center" style="color:white" >My name is Leonardo! </p>
+      <p align="center" style="color:white" >and I would like to welcome You </p>
+      <p align="center" style="color:white" >To my little HTML editor</p>
+      <p align="center" style="color:white" >Feel free to play around with the code :) </p>
+
+
+    </body>
+
+  </html>
+
+
+
+
+</textarea>
+<img id="h" src="https://theturtle.gr/wp-content/uploads/2019/11/htmllogo.png">
+</body>
+</html>
